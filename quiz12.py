@@ -30,7 +30,19 @@ def find_divisors(number):
     for i in range(1, int(sqrtNum)):
         if number % i == 0:
             divisors += 1
-    return divisors*2    
+    return divisors*2
+#-------------------------------------
+
+#-------------------------------------
+def GetDivisorsCountImprovemnt(val):
+    count = 0
+    sqrtNum = sqrt(val)
+    for i in range(1, int(sqrtNum)):
+        if val % i == 0:
+            count += 2
+    if val == sqrtNum * sqrtNum:
+        count = count - 1
+    return count            
 #-------------------------------------
 
 pos = 1
@@ -40,7 +52,8 @@ divisor_Count  = 0
 while (True):
     triangleNumber = GetTriangleNumber(pos)
 #    divisor_Count  = GetDivisorsCount(triangleNumber)
-    divisor_Count  = find_divisors(triangleNumber)
+#    divisor_Count  = find_divisors(triangleNumber)
+    divisor_Count  = GetDivisorsCountImprovemnt(triangleNumber)
     if (divisor_Count > OVER_DIVISOR):
         print('Highly divisible triangular number: %d' % triangleNumber)
         break
