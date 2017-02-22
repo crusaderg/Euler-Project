@@ -22,3 +22,15 @@ def GetAllDivisor(val):
 
     return lst_Divisor
 #-------------------------------------------------------
+
+#-------------------------------------------------------
+def GetFibNumber(pos):
+    fib1 = 1
+    fib2 = 1
+    fib  = 0
+    for i in range(3, pos + 1):
+        fib = fib1 + fib2
+        fib1, fib2 = fib2, fib    
+
+    return fib
+#-------------------------------------------------------
