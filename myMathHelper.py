@@ -11,4 +11,14 @@ def IsPrime( val ):
             return False
 
     return True
-#-------------------------------------------------------    
+#-------------------------------------------------------
+
+#-------------------------------------------------------
+def GetAllDivisor(val):
+    lst_Divisor = []
+    for divisor in range(1, int((val/2)) + 1):
+        if (val % divisor) == 0:
+            lst_Divisor.append(divisor)
+
+    return lst_Divisor
+#-------------------------------------------------------
