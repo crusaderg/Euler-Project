@@ -2,6 +2,10 @@ import math
 
 #-------------------------------------------------------
 def IsPrime( val ):
+    if (val == 1):
+        return False
+    if (val == 2):
+        return True
     if (val % 2) == 0:
         return False
 
