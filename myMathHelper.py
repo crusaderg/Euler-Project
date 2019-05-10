@@ -509,6 +509,13 @@ def GetFirst10000Prime():
 #-------------------------------------------------------
 
 #-------------------------------------------------------
+def Is2Square( number ):
+    number1 = number - 1
+
+    return ( number & number1 ) == 0
+#-------------------------------------------------------
+
+#-------------------------------------------------------
 def IsPrime( val ):
     if (val == 1):
         return False
@@ -526,7 +533,7 @@ def IsPrime( val ):
 #-------------------------------------------------------
 
 #-------------------------------------------------------
-def GetAllDivisor(val):
+def GetAllDivisor( val ):
     lst_Divisor = []
     for divisor in range(1, int((val/2)) + 1):
         if (val % divisor) == 0:
@@ -536,7 +543,32 @@ def GetAllDivisor(val):
 #-------------------------------------------------------
 
 #-------------------------------------------------------
-def GetFibNumber(pos):
+def GetAllPrimeDivisor( val ):
+    list_Divisor = []
+
+    if IsPrime( val ):
+        return list_Divisor
+
+    factor_List = GetAllDivisor( val )
+    factor = factor_List[1]
+    number = val
+    while int(number / factor) != 1:
+        if IsPrime( factor ):
+            list_Divisor.append( factor )
+
+        number = int(number / factor)
+        factor_List = GetAllDivisor( number )
+        if len( factor_List ) > 1:
+            factor = factor_List[1]
+        else:
+            factor = number
+    list_Divisor.append( factor )
+
+    return list_Divisor
+#-------------------------------------------------------
+
+#-------------------------------------------------------
+def GetFibNumber( pos ):
     fib1 = 1
     fib2 = 1
     fib  = 0
